@@ -1,5 +1,7 @@
 # ID2223 Lab2 - Fine-tuning Whisper (small) for the Swedish language
 
+![user interface screenshot](./screenshot.png)
+
 ## Description
 
 In this task, we are fine-tuning a neural network called Whisper that is pre-trained for audio transcription.
