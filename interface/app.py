@@ -1,8 +1,21 @@
 from transformers import pipeline
 import gradio as gr
 
-pipe_fine = pipeline(model="zeihers-mart/whisper-small-swedish-basic") 
-pipe_raw = pipeline(model="openai/whisper-small") 
+pipe_fine = pipeline(model="zeihers-mart/whisper-small-swedish-basic", device_map="auto") 
+pipe_raw = pipeline(model="openai/whisper-small", device_map="auto")
+
+# force swedish
+pipe_fine.model.config.forced_decoder_ids = (
+    pipe_fine.tokenizer.get_decoder_prompt_ids(
+        language="sv", task="transcribe"
+    )
+)
+
+pipe_raw.model.config.forced_decoder_ids = (
+    pipe_raw.tokenizer.get_decoder_prompt_ids(
+        language="sv", task="transcribe"
+    )
+)
 
 def transcribe(audio):
     text_sv = pipe_fine(audio)["text"]
