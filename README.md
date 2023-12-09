@@ -109,7 +109,7 @@ to force the model to target a specific language. Using this during training sig
 As of now, we have used a method of updating all the weights in the original model, with the aforementioned problems.
 There is a different approach that promises solutions to this problem.
 
-** Parameter-Efficient Fine-Tuning (PeFT) **
+**Parameter-Efficient Fine-Tuning (PeFT)**
 
 In PeFT most of the weights of the original model are frozen and additional weights are added on top of the existing model
 that are fine-tuned for the task.
@@ -125,7 +125,7 @@ Finally, the PeFT fine-tuned models can perform equally well as a traditional al
 For inference one would load the original model as well as the small PeFT model and by combining
 them one gets the fine-tuned final model for inference.
 
-A full implementation for this technique can be found here [Finetuning Whisper-large-V2 on Colab using PEFT-Lora + BNB INT8 training](https://colab.research.google.com/drive/1DOkD_5OUjFa0r5Ik3SgywJLJtEo2qLxO?usp=sharing)
+A full implementation for this technique can be found here [Finetuning Whisper-large-V2 on Colab using PEFT-Lora + BNB INT8 training](https://colab.research.google.com/drive/1DOkD_5OUjFa0r5Ik3SgywJLJtEo2qLxO?usp=sharing) and in our training pipeline. Unfortunatly, we where never able to fully train a PeFT based model due to the instability of colab and because we where not willing to spend even more money on compute.
 
 ## Data-centric approaches
 
