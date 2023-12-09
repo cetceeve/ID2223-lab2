@@ -2,6 +2,10 @@
 
 ![user interface screenshot](./screenshot.png)
 
+## User interface
+
+https://huggingface.co/spaces/zeihers-mart/lab2
+
 ## Description
 
 In this task, we are fine-tuning a neural network called Whisper that is pre-trained for audio transcription.
@@ -93,6 +97,12 @@ Unfortunately, we could not test this setting, but we have seen a `weight_decay=
 
 During the warm-up phase, the learning rate is slowly increased.
 A larger warm-up phase could be beneficial in mitigating the exploding gradients problem.
+
+**Force generation**
+
+To significantly improve training the most important stap is to force the model to predict the target language.
+The Whispher model has a language parameter for it's `generate` that we can use for both inference and training
+to force the model to target a specific language. Using this during training significantly improved the accuracy of the transctiptions.
 
 ### Change fine-tuning model architecture
 
