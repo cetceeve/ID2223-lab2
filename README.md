@@ -13,6 +13,19 @@ Despite the authors' German origin we chose to fine-tune whisper for Swedish as 
 One of the core challenges is that we have limited computed resources so we choose to fine-tune the whisper small with around 244M parameters.
 Whisper is inherently expensive to train as it deals with resource-intensive audio files.
 
+## Results
+
+We evaluated all models on the `test` corpus of the swedish `common-voice` dataset, which none of the models had seen in training.
+The `whisper-small` model is the official pre-trained one from openAI, without fine-tuning.
+The `whisper-small-finetuned` model is our best fine-tuned model, that includes the improvements we describe below.
+The `whisper-small-tutorial` model is the model that results from strictly following the finetuning tutorial (but for swedish) that we were given as guidance.
+
+| Model | Eval Loss | Eval WER |
+| --- | --- | --- |
+| whisper-small | 4.415 | 28.504 |
+| whisper-small-tutorial | 0.325 | 98.139 |
+| whisper-small-finetuned | 0.304 | 20.663 |
+
 ## Core challenges
 
 As we have very limited data available there are two major challenges.
